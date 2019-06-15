@@ -1,9 +1,0 @@
-package jp.co.internous.action;
-
-public class ListSample {
-
-	public static void main(String[]args){
-		List<String>list=new ArrayList<String>();
-
-
-}
