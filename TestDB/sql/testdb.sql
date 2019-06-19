@@ -3,7 +3,7 @@ create database testdb;
 use testdb;
 
 create table test_table(
-use_id int,
+user_id int,
 user_name varchar(255),
 password varchar(255)
 );
