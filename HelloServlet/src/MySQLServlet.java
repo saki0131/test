@@ -21,7 +21,7 @@ public class MySQLServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)throws
 ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charsetUTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 
 		PrintWriter out=response.getWriter();
 
@@ -32,9 +32,9 @@ ServletException,IOException{
 		out.println("<body>");
 
 		Connection conn=null;
-		String url="jdbs:mysql://local/testdb";
+		String url="jdbc:mysql://localhost/testdb_asahina";
 		String user="root";
-		String password= "";
+		String password= "mysql";
 
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();

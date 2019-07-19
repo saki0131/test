@@ -1,6 +1,6 @@
-drop database if exists testdb;
-create database testdb;
-use testdb;
+drop database if exists testdb_asahina;
+create database testdb_asahina;
+use testdb_asahina;
 create table test_table(
 user_id int,
 user_name varchar(255),
