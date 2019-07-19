@@ -34,7 +34,7 @@ ServletException,IOException{
 		Connection conn=null;
 		String url="jdbs:mysql://local/testdb";
 		String user="root";
-		String password="mysql";
+		String password= "";
 
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -44,9 +44,39 @@ ServletException,IOException{
 			String sql="SELECT * FROM test_table";
 			ResultSet rs=stmt.executeQuery(sql);
 
-
+		while(rs.next()){
+			int userId=rs.getInt("user_id");
+			String userName=rs.getString("user_name");
+			String userPassword=rs.getString("password");
+			out.println("<p>");
+			out.println("ユーザーID："+userId+"、ユーザー名："+userName+"、パスワード："+userPassword);
+			out.println("</p>");
 		}
 
+		rs.close();
+		stmt.close();
+
+
+		}catch(ClassNotFoundException e){
+			out.println("ClassNotFoundException:"+e.getMessage());
+		}catch(SQLException e){
+			out.println("SQLException:"+e.getMessage());
+
+		}catch(Exception e){
+			out.println("Excption:"+e.getMessage());
+		}finally{
+			try{
+				if(conn != null){
+					conn.close();
+				}
+
+			}catch(SQLException e){
+				out.println("SQLExcption:"+e.getMessage());
+			}
+		}
+
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }
